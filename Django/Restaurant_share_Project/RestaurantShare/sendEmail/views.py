@@ -11,8 +11,9 @@ def sendEmail(request):
     checked_res_list = request.POST.getlist('checks')
     inputReceiver =request.POST['inputReceiver']
     inputTitle = request.POST['inputTitle']
+    inputPW = (request.POST['inputPW'])
     inputContent = request.POST['inputContent']
-    
+
     mail_html = "<html><body>"
     mail_html += "<h1> 맛집 공유 </h1>"
     mail_html += "<p>"+inputContent+"<br>"
@@ -27,7 +28,7 @@ def sendEmail(request):
     mail_html +="</body></html>"
 
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login("bmil2011s@gmail.com", "gcnplpmmufyovsem")
+    server.login("bmil2011s@gmail.com", "blurredPW") # 패스워드 혹시나 블러처리
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = inputTitle
