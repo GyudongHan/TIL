@@ -1,0 +1,4 @@
+django
+openpyxl
+pandas
+jinja2

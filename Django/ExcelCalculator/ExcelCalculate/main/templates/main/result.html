@@ -1,0 +1,65 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .messageDiv{
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .custom-btn{
+            font-size: 10px;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+    </style>
+
+    <title>Excel Calculate</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="page-header">
+                <a href="/" class="btn btn-default btn-xs" style="margin: 10px">메인화면</a>
+                <h1>Excel Calculate <small>with Django</small></h1>
+            </div>
+        </div>
+        <div class='body'>
+            <div class="resultDiv">
+                <h3> * Excel 결과 확인 *</h3>
+                <h4> - grade별 최솟값, 최댓값, 평균값</h4>
+                {% for key, value in grade_calculate_dic.items %} 
+                    <h5>GRADE: {{ key }}</h5>
+                    <p><strong>최솟값 : </strong> {{ value.min }}</p>
+                    <p><strong>최댓값 : </strong> {{ value.max }}</p>
+                    <p><strong>평균값 : </strong> {{ value.avg }}</p>
+                    <br>
+                {% endfor %}
+                <br>
+                <h4> - 이메일별 주소 도메인 인원 </h4>
+                {% for key, value in email_domain_dic.items %}
+                    <p><strong>{{ key }}: </strong> {{ value }}명</p>
+                {% endfor %}
+            </div>
+            <hr>
+            {{ grade_calculate_pd_dic.grade_df|safe }}
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Project3-ExcelCalculate
+        </div>
+    </div>
+</body>
+</html>
