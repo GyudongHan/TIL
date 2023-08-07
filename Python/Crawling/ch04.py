@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd 
 from fake_useragent import UserAgent
 
-# 이 코드를 어떻게 활용할 것인가? 
 def getSoup(com_code):
     url = 'https://finance.naver.com/item/main.naver?code=' + com_code
     ua = UserAgent()
@@ -15,9 +14,8 @@ def getSoup(com_code):
 
 def getPrice(com_code):
     soup = getSoup(com_code)
-    no_today = soup.select_one("p.no_today") # print(no_today)
+    no_today = soup.select_one("p.no_today") # print(no_today)로도 html 소스 일부를 확인할 수 있음
     price = no_today.select_one("span.blind").get_text()
-
     return price
 
 def main():
@@ -31,6 +29,7 @@ def main():
     
     df = pd.DataFrame({"종목코드":com_codes, "상장회사":com_names, "주가":prices})
     print(df)
+    # 실제 주가를 크롤링 한다면 아래처럼 해당 주가의 날짜(시기)를 입력해도 좋겠다.
     # df['날짜'] = "오늘날짜"
     # print(df)
         
