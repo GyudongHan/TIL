@@ -12,17 +12,20 @@
 - Count Data, Log Transformation, Scaling, Interaction, Selection
 
 2-1 Count Data
+
 ![Alt text](image-1.png)
 - ex) 사용자별 음악 청취 수, 사용자별 클릭 건수, 리뷰 건수 등(휴먼 계정, 소극적인 계정들의 비율이 있을 것이므로 0건의 개수가 많을 것이다.)
 - Binning에는 단순히 0과 1의 이분법적 그룹화 말고도, Quantile Binning 처럼 사분위수로 그룹화할 수도 있다.
 
-2-2 Log Transform
+  2-2 Log Transform
+
 ![Alt text](image-2.png)
 ![Alt text](image-4.png)
 - data들을 로그변환하여 보다 정규화하게 만들 목적과 오차를 줄여줄 목적으로 수행함.
 - ex) 국민 연봉 분포(평균 근처에 몰려있고, 상위로 길게 늘어진)
 
 2-3 Scaling
+
 ![Alt text](image-5.png)
 - Scaling은 데이터의 특성(feature)들을 일정한 범위로 조정하는 작업을 의미함.  
 
